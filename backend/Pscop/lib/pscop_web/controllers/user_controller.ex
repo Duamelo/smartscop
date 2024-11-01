@@ -6,8 +6,8 @@ defmodule PscopWeb.UserController do
 
   action_fallback PscopWeb.FallbackController
 
-  def obtenir_liste_users(conn, _params) do
-    users = Users.list_users()
+  def get_all_users(conn, _params) do
+    users = Users.get_users()
     render(conn, :index, user: users)
   end
 

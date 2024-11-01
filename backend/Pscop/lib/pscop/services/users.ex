@@ -5,7 +5,7 @@ defmodule Pscop.Services.Users do
 
   alias Pscop.Schemas.User
 
-  def list_users do
+  def get_users do
     Repo.all(User)
   end
 

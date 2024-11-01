@@ -11,7 +11,9 @@ defmodule Pscop.Services.Presences do
 
   def get_presence!(id), do: Repo.get!(Presence, id)
 
-  def create_presence(attrs \\ %{}) do
+  def register_presence(attrs \\ %{}) do
+    attrs = Map.put_new(attrs, "arrival_date", NaiveDateTime.utc_now())
+
     %Presence{}
     |> Presence.changeset(attrs)
     |> Repo.insert()

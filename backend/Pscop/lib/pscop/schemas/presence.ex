@@ -8,12 +8,11 @@ defmodule Pscop.Schemas.Presence do
     field :motif, :string
 
     belongs_to :user, Pscop.Schemas.User
-    timestamps(type: :utc_datetime)
   end
 
   def changeset(presence, attrs) do
     presence
-    |> cast(attrs, [:departure_date, :arrival_date, :motif, :user_id])
-    |> validate_required([:user_id, :motif, :arrival_date])
+    |> cast(attrs, [:departure_date, :arrival_date, :motif])
+    |> validate_required([:motif, :arrival_date])
   end
 end

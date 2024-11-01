@@ -4,7 +4,7 @@ defmodule Pscop.Schemas.User do
 
   @email_regex ~r/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
-  @allowed_status ["Visiteur", "Usager", "Membre"]
+  @allowed_status ["visiteur", "usager", "membre"]
   @allowed_sexes ["Masculin", "Feminin", "Autre"]
 
   schema "users" do

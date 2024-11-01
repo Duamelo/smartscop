@@ -6,7 +6,7 @@ defmodule Pscop.Persistence.Repo.Migrations.CreateUser do
       add :nom, :string, null: false
       add :prenoms, :string, null: false
       add :telephone, :string, null: false
-      add :status, :string, default: "Visiteur", null: false
+      add :status, :string, default: "visiteur", null: false
       add :email, :string
       add :age, :string
       add :sexe, :string

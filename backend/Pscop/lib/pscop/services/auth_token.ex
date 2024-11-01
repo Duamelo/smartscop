@@ -3,12 +3,12 @@ defmodule Pscop.Services.AuthToken do
 
   @secret_key "rppgj4PxvUgdYIt3XPtLAixmaZnkudHFC4zdZPtoVKrbZRZuCdD6i8GsaLFaRGjh"
 
-  def generate_token(user, xsrf_token) do
+  def generate_token(account, xsrf_token) do
     expiration_time = 86400
 
     claims = %{
-      "account_id" => user.id,
-      "role" => user.role_id,
+      "account_id" => account.id,
+      "role" => account.role_id,
       "xsrf-token" => xsrf_token,
       "exp" => Joken.current_time() + expiration_time
     }

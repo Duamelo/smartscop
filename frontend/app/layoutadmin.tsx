@@ -1,11 +1,11 @@
 import React from "react";
-import Sidebar from "../components/Sidebar";
-import "../globals.css";
-interface DashboardLayoutProps {
+import Sidebar from "./components/Sidebar";
+import "./globals.css";
+interface AdminLayoutProps {
   children: React.ReactNode;
 }
 
-const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
+const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col w-full min-h-screen">
       <div className="w-full flex flex-row flex-1">
@@ -20,4 +20,4 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   );
 };
 
-export default DashboardLayout;
+export default AdminLayout;

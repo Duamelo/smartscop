@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Table from "../../components/Table";
-import Search from "../../components/Search";
+import Table from "../components/Table";
+import Search from "../components/Search";
 import { GrTrash } from "react-icons/gr";
-import Button from "../../components/button";
-
+import Button from "../components/button";
+import AdminLayout from "../layoutadmin";
 import { MdEditDocument, MdPerson } from "react-icons/md";
 interface User {
   id: number;
@@ -106,7 +106,7 @@ const Usagers: React.FC = () => {
     setSearchValue(value);
   };
   return (
-    <>
+    <AdminLayout>
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Liste globale</h1>
         <div className="flex w-[40%] gap-4">
@@ -126,7 +126,7 @@ const Usagers: React.FC = () => {
       </div>
 
       <Table columns={Columns} data={Data} actions={renderActions} />
-    </>
+    </AdminLayout>
   );
 };
 

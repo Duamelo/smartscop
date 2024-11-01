@@ -2,6 +2,8 @@ defmodule Pscop.Schemas.Account do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @email_regex ~r/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
   schema "accounts" do
     field :password_hash, :string
     field :email, :string
@@ -19,7 +21,7 @@ defmodule Pscop.Schemas.Account do
     account
     |> cast(attrs, [:email, :password, :is_active, :role_id])
     |> validate_required([:email, :password, :role_id])
-    |> validate_format(:email, ~r/[^\s]+@[^\s]+$/, message: "must have the @ sign and no spaces")
+    |> validate_format(:email, @email_regex, message: "must be a valid email address")
     |> unique_constraint(:email)
     |> hash_password()
   end

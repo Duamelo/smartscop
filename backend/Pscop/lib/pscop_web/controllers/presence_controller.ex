@@ -15,7 +15,7 @@ defmodule PscopWeb.PresenceController do
     with {:ok, %Presence{} = presence} <- Presences.create_presence(%{"arrival_date" => arrival_date, "motif" => motif, "user_id"=> user_id}) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", ~p"/api/presences/#{presence}")
+      # |> put_resp_header("location", ~p"/api/presences/#{presence}")
       |> render(:show, presence: presence)
     end
   end

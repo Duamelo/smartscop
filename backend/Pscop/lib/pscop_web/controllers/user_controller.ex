@@ -39,7 +39,7 @@ defmodule PscopWeb.UserController do
     end
   end
 
-  def supprimer_user(conn, %{"id" => id}) do
+  def delete_user(conn, %{"id" => id}) do
     user = Users.get_user!(id)
 
     with {:ok, %User{}} <- Users.delete_user(user) do

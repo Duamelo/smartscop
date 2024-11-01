@@ -10,7 +10,7 @@ defmodule Pscop.Schemas.User do
     field :nom, :string
     field :prenoms, :string
     field :status, :string
-    field :telephone, :integer
+    field :telephone, :string
     field :email, :string
     field :sexe, :string
     field :profil, :string
@@ -22,7 +22,7 @@ defmodule Pscop.Schemas.User do
 
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:nom, :prenoms, :telephone, :status, :email, :sexe, :profession, :pin, :handicap])
+    |> cast(attrs, [:nom, :prenoms, :telephone, :status, :email, :sexe, :profil, :pin, :handicap])
     |> validate_required([:nom, :prenoms, :telephone])
     |> validate_format(:email, @email_regex, message: "must be a valid email address")
     |> validate_inclusion(:sexe, @allowed_sexes)

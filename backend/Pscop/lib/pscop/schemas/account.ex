@@ -40,7 +40,7 @@ defmodule Pscop.Schemas.Account do
   end
 
   defp valid_password?(password) do
-    Regex.match?(password_regex, password)
+    Regex.match?(@password_regex, password)
   end
 
   defp hash_password(changeset) do

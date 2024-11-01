@@ -20,7 +20,7 @@ defmodule PscopWeb.UserController do
     end
   end
 
-  def consulter_info_user(conn, %{"user_id" => id}) do
+  def get_info_user(conn, %{"user_id" => id}) do
     user = Users.get_user!(id)
     render(conn, :show, user: user)
   end

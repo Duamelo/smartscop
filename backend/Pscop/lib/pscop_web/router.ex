@@ -5,6 +5,11 @@ defmodule PscopWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :authenticated do
+    plug :accepts, ["json"]
+    plug PscopWeb.Plugs.CSRFProtection
+  end
+
   scope "/api", PscopWeb do
     pipe_through :api
 

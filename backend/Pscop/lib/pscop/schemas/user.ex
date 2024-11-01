@@ -23,9 +23,8 @@ defmodule Pscop.Schemas.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:nom, :prenoms, :telephone, :status, :email, :sexe, :profession, :pin, :handicap])
-    |> validate_required([:nom, :prenoms])
+    |> validate_required([:nom, :prenoms, :telephone])
     |> validate_format(:email, @email_regex, message: "must be a valid email address")
     |> validate_inclusion(:sexe, @allowed_sexes)
-    |> unique_constraint(:email)
   end
 end

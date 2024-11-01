@@ -5,7 +5,7 @@ defmodule Pscop.Persistence.Repo.Migrations.CreateUser do
     create table(:users) do
       add :nom, :string, null: false
       add :prenoms, :string, null: false
-      add :telephone, :string
+      add :telephone, :string, null: false
       add :status, :string
       add :email, :string
       add :sexe, :string
@@ -16,6 +16,5 @@ defmodule Pscop.Persistence.Repo.Migrations.CreateUser do
       timestamps(type: :utc_datetime)
     end
 
-    create unique_index(:users, [:email])
   end
 end

@@ -5,14 +5,13 @@ defmodule PscopWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :authenticated do
+    plug :accepts, ["json"]
+    plug PscopWeb.Plugs.CSRFProtection
+  end
+
   scope "/api", PscopWeb do
     pipe_through :api
-
-    post    "/presences", PresenceController, :enregistrer_nouvelle_presence
-    # get     "/presences", PresenceController, :obtenir_liste_presence
-    # get     "/presences/:usager_id", PresenceController, :consulter_presence_par_usager
-    # put     "/presences/:usager_id", PresenceController, :mettre_a_jour_info_presence
-    # delete  "/presences/:usager_id", PresenceController, :supprimer_presence
 
     post    "/users", UserController, :register_new_visitor
     get     "/users", UserController, :get_all_users
@@ -20,6 +19,14 @@ defmodule PscopWeb.Router do
     put     "/users/:user_id", UserController, :mettre_a_jour_info_user
     delete  "/users/:user_id", UserController, :supprimer_user
 
-    # put   "/devenir_membre/usagers/:usager_id", UsagerController, :devenir_membre
+    delete "/auth/sign_out", AuthController, :sign_out
+  end
+
+  scope "/api", PscopWeb do
+    pipe_through :api
+
+    post "/account/sign_up", AuthController, :sign_up
+
+    post "/auth/sign_in", AuthController, :sign_in
   end
 end

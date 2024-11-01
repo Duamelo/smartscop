@@ -1,7 +1,7 @@
 defmodule PscopWeb.PresenceJSON do
   alias Pscop.Schemas.Presence
 
-  def index(%{presence: presences}) do
+  def get_all_presences(%{presence: presences}) do
     %{data: for(presence <- presences, do: data(presence))}
   end
 

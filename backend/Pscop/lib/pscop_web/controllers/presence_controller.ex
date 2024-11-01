@@ -6,9 +6,9 @@ defmodule PscopWeb.PresenceController do
 
   action_fallback PscopWeb.FallbackController
 
-  def index(conn, _params) do
+  def get_all_presences(conn, _params) do
     presence = Presences.list_presence()
-    render(conn, :index, presence: presence)
+    render(conn, :get_all_presences, presence: presence)
   end
 
   def enregistrer_nouvelle_presence(conn, %{"arrival_date" => arrival_date, "motif" => motif, "user_id"=> user_id}) do

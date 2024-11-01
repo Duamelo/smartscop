@@ -7,7 +7,7 @@ defmodule Pscop.Schemas.Presence do
     field :departure_date, :naive_datetime
     field :motif, :string
 
-    belongs_to :User, Pscop.Schemas.User
+    belongs_to :user, Pscop.Schemas.User
     timestamps(type: :utc_datetime)
   end
 

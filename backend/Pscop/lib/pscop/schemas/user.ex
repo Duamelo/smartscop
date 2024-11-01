@@ -4,6 +4,7 @@ defmodule Pscop.Schemas.User do
 
   @email_regex ~r/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
+  @allowed_status ["Visiteur", "Usager", "Membre"]
   @allowed_sexes ["Masculin", "Feminin", "Autre"]
 
   schema "users" do
@@ -13,6 +14,7 @@ defmodule Pscop.Schemas.User do
     field :telephone, :string
     field :email, :string
     field :sexe, :string
+    field :age, :string
     field :profil, :string
     field :handicap, :string
     field :pin, :string
@@ -22,9 +24,10 @@ defmodule Pscop.Schemas.User do
 
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:nom, :prenoms, :telephone, :status, :email, :sexe, :profil, :pin, :handicap])
-    |> validate_required([:nom, :prenoms, :telephone])
+    |> cast(attrs, [:nom, :prenoms, :telephone, :status, :email, :sexe, :age, :profil, :pin, :handicap])
+    |> validate_required([:nom, :prenoms, :telephone, :sexe, :age, :profil])
     |> validate_format(:email, @email_regex, message: "must be a valid email address")
+    |> validate_inclusion(:status, @allowed_status)
     |> validate_inclusion(:sexe, @allowed_sexes)
   end
 end

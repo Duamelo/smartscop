@@ -2,28 +2,19 @@ defmodule Pscop.DefaultRoles do
     def get_default_roles() do
         [
             %{
-                label: "administrator",
+                label: "facilitator",
                 permissions: %{
-
-                    "users"=> ["create", "read", "update", "delete"],
-                    "presence"=> ["create", "read", "update", "delete"],
-                    "workingtime" => ["create", "read", "update", "delete"],
-                    "teams"=> ["create", "read", "update", "delete"]
-                }
-            },
-            %{
-                label: "manager",
-                permissions: %{
-                    "workingtime" => ["create", "read"],
-                    "teams"=> ["create", "read", "update", "delete"]
+                    "users"=> ["create", "read"],
+                    "attendance"=> ["create", "read"],
+                    "account" => ["read", "update"],
                 }
             },
             %{
                 label: "general manager",
                 permissions: %{
-                    "workingtime" => ["create", "read"],
-                    "teams"=> ["create", "read", "update", "delete"],
-                    "users"=> ["read", "update", "delete"]
+                    "users"=> ["create", "read", "update", "delete"],
+                    "attendance"=> ["create", "read", "update", "delete"],
+                    "account" => ["create", "read", "update", "delete"],
                 }
             }
         ]

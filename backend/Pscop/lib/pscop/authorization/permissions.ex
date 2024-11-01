@@ -4,10 +4,8 @@ defmodule Pscop.Permissions do
     def all_permissions() do
         %{
             "users"=> ["create", "read", "update", "delete"],
-            "role" => ["read"],
-            "clocks"=> ["create", "read", "update", "delete"],
-            "workingtime" => ["create", "read", "update", "delete"],
-            "teams"=> ["create", "read", "update", "delete"]
+            "attendance"=> ["create", "read", "update", "delete"],
+            "account" => ["create", "read", "update", "delete"],
         }
     end
 

@@ -1,8 +1,8 @@
 // File: C:\Users\LENOVO\Documents\smartscop\frontend\app\dashboard\liste-globale\page.tsx
-import * as entry from '../../../../../app/dashboard/liste-globale/page.js'
+import * as entry from '../../../../../app/liste-usagers/page.jsx'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../../app/dashboard/liste-globale/page.js')
+type TEntry = typeof import('../../../../../app/liste-usagers/page.jsx')
 
 type SegmentParams<T extends Object = any> = T extends Record<string, any>
   ? { [K in keyof T]: T[K] extends string ? string | string[] | undefined : never }

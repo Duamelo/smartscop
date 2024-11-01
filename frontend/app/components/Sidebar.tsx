@@ -28,13 +28,13 @@ const menuItems: MenuCategory[] = [
       { title: "Dashboard", path: "/dashboard", icon: <MdDashboard /> },
 
       {
-        title: "Liste Globale",
-        path: "/dashboard/liste-globale",
+        title: "Liste des Usagers",
+        path: "/liste-usagers",
         icon: <MdSupervisedUserCircle />,
       },
       {
         title: "Nouveau Admin",
-        path: "/dashboard/nouveau-admin",
+        path: "/nouveau-admin",
         icon: <MdPeople />,
       },
     ],

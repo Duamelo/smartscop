@@ -31,7 +31,7 @@ defmodule PscopWeb.AuthController do
   end
 
   def sign_in(conn, %{"email" => email, "password" => password}) do
-    case Users.authenticate_user(email, password) do
+    case Accounts.authenticate_account(email, password) do
       {:ok, account} ->
         xsrf_token = AuthToken.get_xsrf_token()
       {:ok, jwt} = AuthToken.generate_token(account, xsrf_token)

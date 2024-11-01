@@ -21,7 +21,9 @@ defmodule PscopWeb.UserJSON do
       sexe: user.sexe,
       profil: user.profil,
       pin: user.pin,
-      handicap: user.handicap
+      handicap: user.handicap,
+      inserted_at: user.inserted_at,
+      updated_at: user.updated_at
     }
   end
 end

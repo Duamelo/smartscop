@@ -11,12 +11,6 @@ config :pscop, Pscop.Persistence.Repo,
 
 config :pscop, PscopWeb.Endpoint,
   http: [ip: {0, 0, 0, 0}, port: 4000],
-  https: [
-  port: 4001,
-  cipher_suite: :strong,
-  keyfile: "priv/cert/selfsigned_key.pem",
-  certfile: "priv/cert/selfsigned.pem"
-  ],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,

@@ -11,8 +11,8 @@ defmodule PscopWeb.UserController do
     render(conn, :index, user: users)
   end
 
-  def enregistrer_nouveau_user(conn, %{"user" => user_params}) do
-    with {:ok, %User{} = user} <- Users.create_user(user_params) do
+  def register_new_visitor(conn, %{"user" => user_params}) do
+    with {:ok, %User{} = user} <- Users.create_visitor(user_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", ~p"/api/users/#{user}")

@@ -11,7 +11,7 @@ defmodule Pscop.Services.Users do
 
   def get_user!(id), do: Repo.get!(User, id)
 
-  def create_user(attrs \\ %{}) do
+  def create_visitor(attrs \\ %{}) do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()

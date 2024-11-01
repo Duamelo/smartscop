@@ -13,13 +13,9 @@ defmodule PscopWeb.Router do
   scope "/api", PscopWeb do
     pipe_through :api
 
-    post    "/users", UserController, :enregistrer_nouveau_user
-    get     "/users", UserController, :obtenir_liste_users
-    get     "/users/:user_id", UserController, :consulter_info_user
-    put     "/users/:user_id", UserController, :mettre_a_jour_info_user
-    delete  "/users/:user_id", UserController, :supprimer_user
+    post    "/users", UserController, :register_new_visitor
+    get     "/users", UserController, :get_all_users
 
-    # put   "/devenir_membre/usagers/:usager_id", UsagerController, :devenir_membre
     delete "/auth/sign_out", AuthController, :sign_out
   end
 

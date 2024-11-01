@@ -9,16 +9,16 @@ defmodule PscopWeb.UserController do
   plug(PscopWeb.Plugs.CheckPermissions,
   actions: [
     enregistrer_nouveau_user: {"users", "create"},
-  ]
-)
+    ]
+  )
 
-  def obtenir_liste_users(conn, _params) do
-    users = Users.list_users()
+  def get_all_users(conn, _params) do
+    users = Users.get_users()
     render(conn, :index, user: users)
   end
 
-  def enregistrer_nouveau_user(conn, %{"user" => user_params}) do
-    with {:ok, %User{} = user} <- Users.create_user(user_params) do
+  def register_new_visitor(conn, %{"user" => user_params}) do
+    with {:ok, %User{} = user} <- Users.register_visitor(user_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", ~p"/api/users/#{user}")

@@ -5,13 +5,13 @@ defmodule Pscop.Services.Users do
 
   alias Pscop.Schemas.User
 
-  def list_users do
+  def get_users do
     Repo.all(User)
   end
 
   def get_user!(id), do: Repo.get!(User, id)
 
-  def create_user(attrs \\ %{}) do
+  def register_visitor(attrs \\ %{}) do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()

@@ -12,7 +12,7 @@ defmodule PscopWeb.UserController do
   end
 
   def register_new_visitor(conn, %{"user" => user_params}) do
-    with {:ok, %User{} = user} <- Users.create_visitor(user_params) do
+    with {:ok, %User{} = user} <- Users.register_visitor(user_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", ~p"/api/users/#{user}")

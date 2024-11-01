@@ -1,4 +1,4 @@
-// File: /home/duamelo/Documents/projects/smartscop/frontend/app/dashboard/layout.tsx
+// File: C:\Users\LENOVO\Documents\smartscop\frontend\app\dashboard\layout.tsx
 import * as entry from '../../../../app/dashboard/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

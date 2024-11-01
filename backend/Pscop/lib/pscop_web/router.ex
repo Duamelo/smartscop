@@ -15,8 +15,8 @@ defmodule PscopWeb.Router do
 
     post    "/users", UserController, :register_new_visitor
     get     "/users", UserController, :get_all_users
-    get     "/users/:user_id", UserController, :get_info_user
-    put     "/users/:user_id", UserController, :mettre_a_jour_info_user
+    get     "/users/:user_id", UserController, :get_user_info
+    put     "/users/:id", UserController, :update_user_info
     delete  "/users/:user_id", UserController, :supprimer_user
 
     delete "/auth/sign_out", AuthController, :sign_out

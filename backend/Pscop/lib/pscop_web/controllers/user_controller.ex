@@ -26,12 +26,12 @@ defmodule PscopWeb.UserController do
     end
   end
 
-  def get_info_user(conn, %{"user_id" => id}) do
+  def get_user_info(conn, %{"user_id" => id}) do
     user = Users.get_user!(id)
     render(conn, :show, user: user)
   end
 
-  def mettre_a_jour_info_user(conn, %{"id" => id, "user" => user_params}) do
+  def update_user_info(conn, %{"id" => id, "user" => user_params}) do
     user = Users.get_user!(id)
 
     with {:ok, %User{} = user} <- Users.update_user(user, user_params) do

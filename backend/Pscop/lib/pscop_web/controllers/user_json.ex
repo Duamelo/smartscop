@@ -17,6 +17,7 @@ defmodule PscopWeb.UserJSON do
       telephone: user.telephone,
       status: user.status,
       email: user.email,
+      age: user.age,
       sexe: user.sexe,
       profil: user.profil,
       pin: user.pin,

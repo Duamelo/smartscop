@@ -6,6 +6,12 @@ defmodule PscopWeb.UserController do
 
   action_fallback PscopWeb.FallbackController
 
+  plug(PscopWeb.Plugs.CheckPermissions,
+  actions: [
+    enregistrer_nouveau_user: {"users", "create"},
+  ]
+)
+
   def obtenir_liste_users(conn, _params) do
     users = Users.list_users()
     render(conn, :index, user: users)

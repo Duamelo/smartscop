@@ -15,7 +15,7 @@ defmodule PscopWeb.Router do
     # delete  "/presences/:usager_id", PresenceController, :supprimer_presence
 
     post    "/users", UserController, :register_new_visitor
-    get     "/users", UserController, :obtenir_liste_users
+    get     "/users", UserController, :get_all_users
     get     "/users/:user_id", UserController, :consulter_info_user
     put     "/users/:user_id", UserController, :mettre_a_jour_info_user
     delete  "/users/:user_id", UserController, :supprimer_user

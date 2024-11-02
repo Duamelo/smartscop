@@ -93,7 +93,7 @@ const Sidebar: React.FC<{}> = () => {
       <form onSubmit={handleLogout}>
         <button
           type="submit"
-          className="flex items-center space-y-6 px-3 py-2  gap-2  bg-red-600 rounded-lg text-white hover:bg-colorRouge transition-colors"
+          className="flex items-center space-y-6 px-3 py-2  gap-2  bg-red-600 rounded-lg text-white hover:bg-colorRouge transition-colors w-[100%]"
         >
           <Image src={image2} alt="" width={20} height={20} />
           Déconnexion

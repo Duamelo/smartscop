@@ -4,7 +4,7 @@ import LineChart from "../components/LineChart";
 import PieChart from "../components/PieChart";
 import EventCard from "../components/EventCard";
 import AdminLayout from "../layoutadmin";
-// import Clock from '../components/Clock';
+import Clock from "../components/Clock";
 
 const DashboardPage: React.FC = () => {
   return (
@@ -21,13 +21,15 @@ const DashboardPage: React.FC = () => {
           <PieChart />
         </div>
 
-        <div className="col-span-2 bg-white p-4 rounded-md shadow-md">
-          <h3 className="text-gray-600 mb-4">Événements en cours</h3>
+        <div className="col-span-2 bg-white p-4 rounded-md shadow-md ">
+          <h3 className=" mb-4 text-bold">Événements en cours</h3>
           <EventCard title="Atelier : Hub" manager="Magsoud TAWALIOU" />
           <EventCard title="Atelier : Hub" manager="Magsoud TAWALIOU" />
         </div>
 
-        <div className="col-span-1">{/* <Clock /> */}</div>
+        <div className="col-span-1">
+          <Clock />
+        </div>
       </div>
     </AdminLayout>
   );

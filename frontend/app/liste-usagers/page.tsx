@@ -6,6 +6,8 @@ import { GrTrash } from "react-icons/gr";
 import Button from "../components/button";
 import AdminLayout from "../layoutadmin";
 import { MdEditDocument, MdPerson } from "react-icons/md";
+import Image from "next/image";
+import image1 from "../../public/icons/Add User Male.png";
 interface User {
   id: number;
   lastName: string;
@@ -109,7 +111,7 @@ const Usagers: React.FC = () => {
     <AdminLayout>
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Liste globale</h1>
-        <div className="flex w-[40%] gap-4">
+        <div className="flex  gap-4">
           <Search
             placeholder="Recherche"
             value={searchValue}
@@ -119,8 +121,8 @@ const Usagers: React.FC = () => {
           <Button
             label={"Ajouter"}
             variant="primary"
-            icon={<MdPerson />}
-            className="w-[30%] rounded-lg gap-2 justify-center"
+            icon={<Image src={image1.src} alt="" width={20} height={20} />}
+            className=" rounded-lg gap-2 justify-center"
           />
         </div>
       </div>

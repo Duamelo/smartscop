@@ -53,7 +53,7 @@ const options = {
 const LineChart: React.FC = () => {
   return (
     <div className="bg-white p-4 rounded-md shadow-md">
-      <h3 className="text-gray-600">Affluences par jour</h3>
+      <h3 className="text-bold">Affluences par jour</h3>
       <Line data={data} options={options} />
     </div>
   );

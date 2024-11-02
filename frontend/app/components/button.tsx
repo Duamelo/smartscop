@@ -30,7 +30,8 @@ const Button: React.FC<ButtonProps> = ({
       className={`${baseStyles} ${variantStyles[variant]} ${className}`}
       onClick={onClick}
     >
-      {icon && <span className="text-lg">{icon}</span>}
+      {/* {icon && <span className="text-lg">{icon}</span>} */}
+      {icon}
       {label}
     </button>
   );

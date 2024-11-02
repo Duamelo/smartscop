@@ -8,6 +8,9 @@ defmodule PscopWeb.AuthController do
   def sign_up(conn, %{"email" => email, "password" => password, "role" => role_label}) do
     try do
       role = Roles.get_role_by_label!(role_label)
+      if role == nil do
+        raise "Role not found for label: #{role_label}"
+      end
       case Accounts.create_account(%{email: email, password: password, role_id: role.id}) do
         {:ok, account} ->
           conn
@@ -23,10 +26,10 @@ defmodule PscopWeb.AuthController do
         conn
         |> put_status(400)
         |> json(%{error: e.message})
-      Ecto.ConstraintError ->
+      e in Ecto.ConstraintError ->
         conn
         |> put_status(404)
-        |> render("error.json", error: "This email is already taken")
+        |> json(%{error: e.message})
     end
   end
 

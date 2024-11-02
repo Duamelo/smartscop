@@ -7,13 +7,12 @@ defmodule Pscop.Schemas.Presence do
     field :departure_date, :naive_datetime
     field :motif, :string
 
-    belongs_to :User, Pscop.Schemas.User
-    timestamps(type: :utc_datetime)
+    belongs_to :user, Pscop.Schemas.User
   end
 
   def changeset(presence, attrs) do
     presence
-    |> cast(attrs, [:departure_date, :arrival_date, :motif, :user_id])
-    |> validate_required([:user_id, :motif, :arrival_date])
+    |> cast(attrs, [:departure_date, :arrival_date, :motif])
+    |> validate_required([:motif, :arrival_date])
   end
 end

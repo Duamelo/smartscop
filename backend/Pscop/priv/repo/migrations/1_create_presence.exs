@@ -7,7 +7,10 @@ defmodule Pscop.Persistence.Repo.Migrations.CreatePresence do
       add :departure_date, :naive_datetime
       add :motif, :string
 
-      timestamps(type: :utc_datetime)
+      add :user_id, references(:users, on_delete: :nothing)
+
     end
+
+    create index(:presence, [:user_id])
   end
 end

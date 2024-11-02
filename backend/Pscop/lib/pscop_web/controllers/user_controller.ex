@@ -6,11 +6,11 @@ defmodule PscopWeb.UserController do
 
   action_fallback PscopWeb.FallbackController
 
-  plug(PscopWeb.Plugs.CheckPermissions,
-  actions: [
-    enregistrer_nouveau_user: {"users", "create"},
-    ]
-  )
+  # plug(PscopWeb.Plugs.CheckPermissions,
+  # actions: [
+  #   enregistrer_nouveau_user: {"users", "create"},
+  #   ]
+  # )
 
   def get_all_users(conn, _params) do
     users = Users.get_users()
@@ -26,12 +26,12 @@ defmodule PscopWeb.UserController do
     end
   end
 
-  def consulter_info_user(conn, %{"user_id" => id}) do
+  def get_user_info(conn, %{"user_id" => id}) do
     user = Users.get_user!(id)
     render(conn, :show, user: user)
   end
 
-  def mettre_a_jour_info_user(conn, %{"id" => id, "user" => user_params}) do
+  def update_user_info(conn, %{"id" => id, "user" => user_params}) do
     user = Users.get_user!(id)
 
     with {:ok, %User{} = user} <- Users.update_user(user, user_params) do
@@ -39,7 +39,7 @@ defmodule PscopWeb.UserController do
     end
   end
 
-  def supprimer_user(conn, %{"id" => id}) do
+  def delete_user(conn, %{"id" => id}) do
     user = Users.get_user!(id)
 
     with {:ok, %User{}} <- Users.delete_user(user) do
